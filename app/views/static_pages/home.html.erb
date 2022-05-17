@@ -1,7 +1,32 @@
 <% provide(:title, "Home") %>
-<h1>Sample App</h1>
-<p>
-  This is the home page for the
-  <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-  sample application.
-</p>
+<body>
+<div id='app'>
+  <v-calendar></v-calendar>
+  <v-date-picker v-model='selectedDate' />
+</div>
+
+<!-- 1. Link Vue Javascript -->
+<script src='https://unpkg.com/vue/dist/vue.js'></script>
+
+<!-- 2. Link VCalendar Javascript (Plugin automatically installed) -->
+<script src='https://unpkg.com/v-calendar'></script>
+
+<!--3. Create the Vue instance-->
+import 'v-calendar/dist/style.css';
+import VCalendar from 'v-calendar';
+
+// Use plugin with defaults
+app.use(VCalendar, {})
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      selectedDate: null,
+    }
+  })
+</script>
+<template>
+  <v-calendar />
+  <v-date-picker v-model="date" />
+</template>
+</body>
