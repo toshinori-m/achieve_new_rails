@@ -1,4 +1,6 @@
 <template>
+  <v-calendar />
+  <v-date-picker v-model="date" />
   <p>
     {{ message }}
   </p>
@@ -6,11 +8,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      message: "Hello Vue!"
-    }
+data() {
+  return {
+    attributes: [
+      {
+        key: 'today',
+        highlight: true,
+        dates: new Date()
+      }
+    ]
   }
+}
 }
 </script>
 

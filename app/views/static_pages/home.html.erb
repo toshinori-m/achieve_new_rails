@@ -2,7 +2,8 @@
 <body>
 <div id='app'>
   <v-calendar></v-calendar>
-  <v-date-picker v-model='selectedDate' />
+  <v-date-picker mode="date" v-model="date" />
+  
 </div>
 
 <!-- 1. Link Vue Javascript -->
@@ -12,21 +13,16 @@
 <script src='https://unpkg.com/v-calendar'></script>
 
 <!--3. Create the Vue instance-->
-import 'v-calendar/dist/style.css';
-import VCalendar from 'v-calendar';
 
-// Use plugin with defaults
-app.use(VCalendar, {})
+
 <script>
   new Vue({
     el: '#app',
-    data: {
-      selectedDate: null,
+    data() {
+      return {
+        date: new Date(),
+      }
     }
   })
 </script>
-<template>
-  <v-calendar />
-  <v-date-picker v-model="date" />
-</template>
 </body>
