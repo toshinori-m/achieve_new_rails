@@ -1,25 +1,35 @@
 <template>
-  <v-calendar />
-  <v-date-picker v-model="date" />
-  <p>
-    {{ message }}
-  </p>
+  <div>
+    <v-menu v-model="menu">
+      <template v-slot:activator="{ on, attrs }">
+        <v-text-field v-model="text" v-bind="attrs" v-on="on" readonly clearable>
+        </v-text-field>
+      </template>
+      <v-date-picker v-model="date" @input="formatDate(YYYY年MM月DD日)">
+      </v-date-picker>
+    </v-menu>
+    date: {{ YYYY年MM月DD日 }}
+  </div>
 </template>
-
 <script>
-export default {
-data() {
-  return {
-    attributes: [
-      {
-        key: 'today',
-        highlight: true,
-        dates: new Date()
-      }
-    ]
-  }
-}
-}
+  export default {
+    data() {
+      return {
+        menu: "",
+        text: "",
+        picker: "",
+      };
+    },
+    methods: {
+      formatDate(date) {
+        if (!date) return null;
+        const [year, month, day] = date.split("-");
+        this.text = `${year}${month}${day}`;
+        this.menu = false;
+        return;
+      },
+    },
+  };
 </script>
 
 <style scoped>
