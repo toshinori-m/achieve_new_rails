@@ -2,16 +2,16 @@
 <body>
   <div id='app'>
     <v-date-picker mode="date" v-model="date" />
-    <template v-slot="{ inputValue, inputEvents }">
-      <input
-        class="bg-white border px-2 py-1 rounded"
-        :value="inputValue"
-        v-on="inputEvents"
-      />
-    </template>
-  </v-date-picker>
-  <%= javascript_pack_tag 'hello_vue.js' %>
-  <div id='vue-app'></div>
+      <template v-slot="{ inputValue, inputEvents }">
+        <input
+          class="bg-white border px-2 py-1 rounded"
+          :value="inputValue"
+          v-on="inputEvents"
+        />
+      </template>
+    </v-date-picker>
+    <%= javascript_pack_tag 'hello_vue.js' %>
+    <div id='vue-app'></div>
   </div>
   <!-- 1. Link Vue Javascript -->
   <script src='https://unpkg.com/vue/dist/vue.js'></script>
@@ -28,15 +28,7 @@
         return {
           date: new Date(),
         }
-      },
-      computed: {
-        trimDate() {
-          if(this.date === "")
-            return ""
-          return moment(this.date).format("YYYY年MM月DD日")
-        }
       }
     })
   </script>
 </body>
-

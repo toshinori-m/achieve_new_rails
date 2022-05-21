@@ -1,40 +1,34 @@
 <template>
-  <div>
-    <v-menu v-model="menu">
-      <template v-slot:activator="{ on, attrs }">
-        <v-text-field v-model="text" v-bind="attrs" v-on="on" readonly clearable>
-        </v-text-field>
-      </template>
-      <v-date-picker v-model="date" @input="formatDate(YYYY年MM月DD日)">
-      </v-date-picker>
-    </v-menu>
-    date: {{ YYYY年MM月DD日 }}
-  </div>
+  <v-app>
+    <v-content>
+      <v-row justify="center">
+        <v-col cols="8">
+          <v-text-field v-model="value" single-line>
+            <template v-slot:append-outer>
+              <date-picker v-model="value"/>
+            </template>
+          </v-text-field>
+        </v-col>
+        <v-col cols="8">
+          <p>日付： {{ value }}</p>
+        </v-col>
+      </v-row>
+    </v-content>
+  </v-app>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        menu: "",
-        text: "",
-        picker: "",
-      };
-    },
-    methods: {
-      formatDate(date) {
-        if (!date) return null;
-        const [year, month, day] = date.split("-");
-        this.text = `${year}${month}${day}`;
-        this.menu = false;
-        return;
-      },
-    },
-  };
-</script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: left;
-}
-</style>
+<script>
+import DatePicker from "./packs/DatePicker";
+
+export default {
+  name: "App",
+  packs: {
+    DatePicker
+  },
+  data() {
+    return {
+      value: null
+    };
+  }
+};
+</script>
