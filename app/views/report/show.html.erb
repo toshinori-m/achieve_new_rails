@@ -1,0 +1,15 @@
+<% @threemonths_goals.each do |i| %>
+  <td>
+  <% if i.quarter === 0 %>
+    <p>１〜３月 = <%= i.content %></p>
+  <% elsif i.quarter === 1 %>
+    <p>４〜６月 = <%= i.content %></p>
+  <% elsif i.quarter === 2 %>
+    <p>７〜９月 = <%= i.content %></p>
+  <% else i.quarter === 3 %>
+    <p>１０〜１２月 = <%= i.content %></p>
+  <% end %>
+  </td>
+<% end %>
+
+

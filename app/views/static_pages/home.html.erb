@@ -1,20 +1,22 @@
 <% provide(:title, "Home") %>
 <body>
   <div id='app'>
-    <v-date-picker mode="date" v-model="date" />
+    <v-date-picker mode="date" v-model="date" :masks="masks"  />
       <template v-slot="{ inputValue, inputEvents }">
         <input
+          id="input_date"
           class="bg-white border px-2 py-1 rounded"
-          :value="inputValue"
+          v-bind:value="inputValue"
           v-on="inputEvents"
         />
       </template>
     </v-date-picker>
+    <input type="button" value="送信" id="submit_btn">
     <%= javascript_pack_tag 'hello_vue.js' %>
     <div id='vue-app'></div>
   </div>
   <!-- 1. Link Vue Javascript -->
-  <script src='https://unpkg.com/vue/dist/vue.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 
   <!-- 2. Link VCalendar Javascript (Plugin automatically installed) -->
   <script src='https://unpkg.com/v-calendar'></script>
@@ -22,13 +24,16 @@
   <!--3. Create the Vue instance-->
 
   <script>
-    new Vue({
-      el: '#app',
-        data() {
-        return {
-          date: new Date(),
-        }
-      }
-    })
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        date: new Date(),
+        masks: {
+          input: 'YYYY-MM-DD',
+        },
+      };
+    },
+  })
   </script>
 </body>

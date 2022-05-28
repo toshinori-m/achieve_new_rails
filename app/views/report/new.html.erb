@@ -1,0 +1,23 @@
+<% provide(:title, 'creat threemonths_goal') %>
+<% provide(:button, '作成') %>
+<h1>３ヶ月ごとの目標</h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <%= form_with model: @form ,url: threemonths_goals_path, local: true  do |f| %>
+    <%= f.label :１〜３月 %>
+    <%= f.text_field :content_1 %>
+    <%= f.label :４〜６月 %>
+    <%= f.text_field :content_2 %>
+    <%= f.label :７〜９月 %>
+    <%= f.text_field :content_3 %>
+    <%= f.label :１０〜１２月 %>
+    <%= f.text_field :content_4 %>
+    <%= f.submit "Submit" %>
+  <% end %>
+  </div>
+  <div class="col-md-1 col-md-offset-1">
+    <%= link_to "キャンセル", root_path , class: "btn" , id: "cancel" %>
+  </div>
+</div>
+
+
