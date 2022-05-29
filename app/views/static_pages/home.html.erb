@@ -1,39 +1,57 @@
-<% provide(:title, "Home") %>
-<body>
-  <div id='app'>
-    <v-date-picker mode="date" v-model="date" :masks="masks"  />
-      <template v-slot="{ inputValue, inputEvents }">
-        <input
-          id="input_date"
-          class="bg-white border px-2 py-1 rounded"
-          v-bind:value="inputValue"
-          v-on="inputEvents"
-        />
-      </template>
-    </v-date-picker>
-    <input type="button" value="送信" id="submit_btn">
-    <%= javascript_pack_tag 'hello_vue.js' %>
-    <div id='vue-app'></div>
+<h1>Achieve your goals</h1>
+<div class="row">
+<% @goal.each do |goal| %>
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to '今期目標', edit_goal_path(goal.id), method: :get , class: "btn" , id: "btn"%>
+    <%= render partial: 'goal/goal', locals: {goal: @goal} %>
+    <% end %>
   </div>
-  <!-- 1. Link Vue Javascript -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to '３ヶ月間目的', new_threemonths_goal_path(:id), method: :get , class: "btn" , id: "btn"%>
+    <%= render template: "threemonths_goals/show"  %>
+  </div>
+</div>
+<div class="row">
+<% @monthly_goals.each do |monthly_goal| %>
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to '今月目的', new_monthly_goal_path(monthly_goal.id), method: :get , class: "btn" , id: "btn"%>
+    <%= render template: "monthly_goals/show"  %>
+    <% end %>
+  </div>
+</div>
 
-  <!-- 2. Link VCalendar Javascript (Plugin automatically installed) -->
-  <script src='https://unpkg.com/v-calendar'></script>
-
-  <!--3. Create the Vue instance-->
-
-  <script>
-  new Vue({
-    el: '#app',
-    data() {
-      return {
-        date: new Date(),
-        masks: {
-          input: 'YYYY-MM-DD',
-        },
-      };
+<div id='app'>
+<v-date-picker mode="date" v-model="date" :masks="masks"  />
+  <template v-slot="{ inputValue, inputEvents }">
+    <input
+      id="input_date"
+      class="bg-white border px-2 py-1 rounded"
+      v-bind:value="inputValue"
+      v-on="inputEvents"
+    />
+  </template>
+</v-date-picker>
+<input type="button" value="送信" id="submit_btn">
+<%= javascript_pack_tag 'hello_vue.js' %>
+<div id='vue-app'></div>
+</div>
+<!-- 1. Link Vue Javascript -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<!-- 2. Link VCalendar Javascript (Plugin automatically installed) -->
+<script src='https://unpkg.com/v-calendar'></script>
+<!--3. Create the Vue instance-->
+<script>
+new Vue({
+el: '#app',
+data() {
+  return {
+    date: new Date(),
+    masks: {
+      input: 'YYYY-MM-DD',
     },
-  })
-  </script>
-</body>
+  };
+},
+})
+</script>
