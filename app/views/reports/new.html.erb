@@ -1,0 +1,25 @@
+<% provide(:title, 'Edit report') %>
+<% provide(:button, '更新') %>
+<h1>今日の達成</h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <%= form_for @reports do |f| %>
+    <%= f.label :練習場所 %>
+    <%= f.text_field :location %>
+    <%= f.label :練習時間 %>
+    <%= f.text_field :time %>
+    <%= f.label :体調 %>
+    <%= f.text_field :condition %>
+    <%= f.label :強度 %>
+    <%= f.text_field :intensity %>
+    <%= f.label :ポイント練習内容 %>
+    <%= f.text_area :point %>
+    <%= f.label :掲示板 %>
+    <%= f.text_area :report %>
+    <%= f.submit "Submit" %>
+  <% end %>
+  </div>
+  <div class="col-md-1 col-md-offset-1">
+    <%= link_to "キャンセル", root_path , class: "btn" , id: "cancel" %>
+  </div>
+</div>
