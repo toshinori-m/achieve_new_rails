@@ -21,22 +21,26 @@
     <% end %>
   </div>
 </div>
-
-<div id='app'>
-<v-date-picker mode="date" v-model="date" :masks="masks"  />
-  <template v-slot="{ inputValue, inputEvents }">
-    <input
-      id="input_date"
-      class="bg-white border px-2 py-1 rounded"
-      v-bind:value="inputValue"
-      v-on="inputEvents"
-    />
-  </template>
-</v-date-picker>
-<input type="button" value="送信" id="submit_btn">
-  <%= javascript_pack_tag 'hello_vue.js' %>
-    <div id='vue-app'></div>
+<h2>カレンダー</h2>
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <div id='app'>
+    <v-date-picker mode="date" v-model="date" :masks="masks"  />
+      <template v-slot="{ inputValue, inputEvents }">
+        <input
+          id="input_date"
+          class="bg-white border px-2 py-1 rounded"
+          v-bind:value="inputValue"
+          v-on="inputEvents"
+        />
+      </template>
+    </v-date-picker>
+    <input type="button" value="日付を入力後クリック" id="btn">
+      <%= javascript_pack_tag 'hello_vue.js' %>
+      <div id='vue-app'></div>
+    </div>
   </div>
+</div>
 <!-- 1. Link Vue Javascript -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 <!-- 2. Link VCalendar Javascript (Plugin automatically installed)  -->

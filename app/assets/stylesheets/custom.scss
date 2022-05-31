@@ -33,13 +33,11 @@ textarea {
   text-align: center;
 }
 
-.center h1 {
+.center h1,h2 {
   margin-bottom: 10px;
 }
 
 /* typography */
-
-
 
 h1 {
   font-size: 3em;
@@ -51,6 +49,15 @@ h1 {
   font-weight: bold;
 }
 
+h2 {
+  font-size: 2em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px red;
+  font-weight: bold;
+}
 
 p {
   font-size: 1.1em;
