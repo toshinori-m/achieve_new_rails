@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   app.component('Calendar', Calendar);
   app.component('DatePicker', DatePicker);
   document.getElementById('submit_btn').addEventListener('click', () => {
-    console.log(datePicker.value);
+    
+    window.location.href = 'http://localhost:3000/reports/new/?='+datePicker.value ;
   });
 });

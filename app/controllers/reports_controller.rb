@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
     if @reports.save
       redirect_to  root_path
     else
-      render :new
+      render action: :new
     end
   end
 
