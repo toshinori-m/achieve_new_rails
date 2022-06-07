@@ -5,13 +5,16 @@ import { SetupCalendar, Calendar, DatePicker } from 'v-calendar';
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = createApp(App);
-  const datePicker = document.getElementById('input_date');
   app.mount("#vue-app");
   app.use(SetupCalendar, {});
   app.component('Calendar', Calendar);
   app.component('DatePicker', DatePicker);
-  document.getElementById('submit_btn').addEventListener('click', () => {
-    
-    window.location.href = 'http://localhost:3000/reports/new/?='+datePicker.value ;
-  });
 });
+
+// export {datePicker_value};
+// export default class hello_vue { 
+//   constructor(datePicker_value) {
+//     this.datePicker_value = datePicker_value;
+//   }
+// }
+// export default datePicker_value;

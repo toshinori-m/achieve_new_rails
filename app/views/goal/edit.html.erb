@@ -5,9 +5,9 @@
   <div class="col-md-8 col-md-offset-2">
     <%= form_with(model: @goal, local: true) do |f| %>
     <%= f.text_field :content, placeholder: "今期目標" %>
-    </div>
-    <div class="col-md-3 col-md-offset-2">
-    <%= f.submit "Goal OK", class: "btn" , id: "login" %>
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+    <%= f.submit "OK", class: "btn" , id: "login" %>
     <% end %>
   </div>
   <div class="col-md-1 col-md-offset-1">

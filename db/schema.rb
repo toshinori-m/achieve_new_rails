@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_012940) do
+ActiveRecord::Schema.define(version: 2022_06_02_073803) do
 
   create_table "goals", force: :cascade do |t|
     t.text "content"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_012940) do
     t.string "time"
     t.string "condition"
     t.string "intensity"
+    t.string "datepicker_value"
     t.index ["user_id", "created_at"], name: "index_reports_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
