@@ -10,11 +10,3 @@ document.addEventListener("DOMContentLoaded", () => {
   app.component('Calendar', Calendar);
   app.component('DatePicker', DatePicker);
 });
-
-// export {datePicker_value};
-// export default class hello_vue { 
-//   constructor(datePicker_value) {
-//     this.datePicker_value = datePicker_value;
-//   }
-// }
-// export default datePicker_value;
