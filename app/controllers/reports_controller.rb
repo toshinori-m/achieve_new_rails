@@ -21,6 +21,8 @@ class ReportsController < ApplicationController
   
   def show
     @reports = Report.all
+    @date = params[:datepicker_value]
+    @reports = Report.all.order(id: "DESC").limit(10)
   end
 
   private
