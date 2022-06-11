@@ -5,6 +5,7 @@
   <div class="col-md-8 col-md-offset-2">
     <% @reports.each do |i| %>
       <td>
+        <font color="#ff0000"><p>年月日 = <%= i.datepicker_value %></p></font>
         <p>練習場所 = <%= i.location %></p>
         <p>練習時間 = <%= i.time %></p>
         <p>体調     = <%= i.condition %></p>
