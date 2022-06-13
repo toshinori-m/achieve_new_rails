@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_073803) do
+ActiveRecord::Schema.define(version: 2022_06_13_004613) do
 
   create_table "goals", force: :cascade do |t|
     t.text "content"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2022_06_02_073803) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "created_at"], name: "index_monthly_goals_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_monthly_goals_on_user_id"
+  end
+
+  create_table "participating_rooms", force: :cascade do |t|
+    t.integer "report_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report_id", "created_at"], name: "index_participating_rooms_on_report_id_and_created_at"
+    t.index ["report_id"], name: "index_participating_rooms_on_report_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -68,6 +76,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_073803) do
 
   add_foreign_key "goals", "users"
   add_foreign_key "monthly_goals", "users"
+  add_foreign_key "participating_rooms", "reports"
   add_foreign_key "reports", "users"
   add_foreign_key "threemonths_goals", "users"
 end
