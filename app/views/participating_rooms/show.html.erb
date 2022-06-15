@@ -1,0 +1,17 @@
+<% provide(:title, 'show report') %>
+<% provide(:button, '表示') %>
+<h1>参加ルーム</h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% @reports.each do |i| %>
+      <td>
+        <font color="#ff0000"><p>年月日 = <%= i.datepicker_value %></p></font>
+        <p>練習内容 = <%= i.point %></p>
+        <p>掲示板   = <%= i.report %></p>
+      </td>
+    <% end %>
+    <div class="col-md-1 col-md-offset-1">
+      <%= link_to "ok", root_path , class: "btn" , id: "submit_btn" %>
+    </div>
+  </div>
+</div>
